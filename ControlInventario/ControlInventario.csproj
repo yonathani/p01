@@ -182,6 +182,10 @@
     <Compile Include="Migrations\202005062238389_Productos.Designer.cs">
       <DependentUpon>202005062238389_Productos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005132348294_proveedores.cs" />
+    <Compile Include="Migrations\202005132348294_proveedores.Designer.cs">
+      <DependentUpon>202005132348294_proveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ForeignKeyAttribute.cs" />
@@ -2010,6 +2014,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005062238389_Productos.resx">
       <DependentUpon>202005062238389_Productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005132348294_proveedores.resx">
+      <DependentUpon>202005132348294_proveedores.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

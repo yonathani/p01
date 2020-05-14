@@ -9,7 +9,9 @@ using System.Web.Mvc;
 using ControlInventario.Models;
 
 namespace ControlInventario.Controllers
+
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
