@@ -2,16 +2,18 @@
 
 @{
     ViewBag.Title = "Index";
-}
-<div class="masthead-content space">
-    <h2>Index</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    </div>
-    <table class="table">
+
+}
+<p>
+    @Html.ActionLink("Nuevo Producto", "Create")
+</p>
+<table class="table table-sm" id="myProducts">
+    <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier.SupplerName)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProductCode)
             </th>
@@ -27,15 +29,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Supplir)
-            </th>
             <th></th>
         </tr>
-
+    </thead>
+    <tbody>
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    <a href="@Url.Action("ProductBySupplier","Products",new { supplierId=item.Id})">@item.Supplier.SupplerName</a>
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductCode)
                 </td>
@@ -52,14 +55,21 @@
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Supplir)
-                </td>
-                <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
             </tr>
         }
+    </tbody>
 
-    </table>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+    $(document).ready(function () {
+            $('#myProducts').DataTable();
+        });</script>
+}
